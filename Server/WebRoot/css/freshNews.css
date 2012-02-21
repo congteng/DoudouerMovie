@@ -1,0 +1,132 @@
+.outTable {
+	width: 630px;
+	/*height: 700px*/
+}
+
+.innerTable {
+	width: 500px;
+	/*height: 200px;*/
+}
+
+.tbcolor {
+	background: rgb(225, 238, 250);
+}
+
+.outTd img {
+	
+	width: 60px;
+	height: 60px;
+	
+	border-color: rgb(149, 195, 234);
+	border-style: solid;
+	border-width: thin;
+	
+}
+
+.outTd {
+	width: 60px;
+	vertical-align: top;
+}
+
+.innerTd {
+	width: 30px;
+	vertical-align: top;
+	border-color: rgb(149, 195, 234);
+	border-style: solid;
+	border-width: thin;
+	border-top: none;
+	border-bottom: none;
+	border-right: none
+}
+
+.innerTd img {
+	width: 30px;
+	height: 30px;
+	
+	border-color: rgb(149, 195, 234);
+	border-style: solid;
+	border-width: thin;
+}
+
+.discuss{
+	width: 50px;
+	vertical-align: super;
+	text-align: left;
+	font-family: "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
+	font-size: 16px;
+}
+.discuss a{
+	color: rgb(80, 130, 267);
+	text-decoration: none;
+}
+
+.text {
+	width: 500px;
+	vertical-align: super;
+	color: #666666;
+	font-family: "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
+	font-size: 16px;
+	cursor: default;
+	padding: 0px 10px;
+}
+
+.innertext {
+	width: 500px;
+	vertical-align: super;
+	color: #666666;
+	font-family: "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
+	font-size: 14px;
+	cursor: default;
+	padding: 0px 10px;
+	border-color: rgb(149, 195, 234);
+	border-bottom-style: dashed;
+	border-width: thin;
+	border-right-style: solid;
+	border-top: none;
+	border-left: none
+}
+
+.shape {
+	vertical-align: bottom;
+}
+
+.innername {
+	width: 15px;
+	vertical-align: super;
+	color: #666666;
+	font-family: "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
+	font-size: 14px;
+	cursor: default;
+	padding: 0px 10px;
+}
+
+.moredata {
+	border-color: rgb(149, 195, 234);
+	background: rgb(225, 238, 250);
+	border-style: solid;
+	border-width: thin;
+	color: rgb(5, 70, 167);
+	
+	width: 595px;
+	height: 27px;
+	font-family: "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
+	font-size: 16px;
+	text-align: center;
+	padding: 7px;
+}
+
+.lasttd {
+	border-color: rgb(149, 195, 234);
+	border-style: solid;
+	border-width: thin;
+	border-top: none;
+	border-bottom: none;
+	border-left: none;
+	width: 500px;
+	vertical-align: super;
+	color: #666666;
+	font-family: "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
+	font-size: 14px;
+	cursor: default;
+	padding: 0px 10px;
+}

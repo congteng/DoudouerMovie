@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	android:background="@color/dd_background"
+	android:orientation="vertical"
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout 
+		android:orientation="horizontal"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<FrameLayout 
+	    	android:layout_width="50dip"
+			android:layout_height="50dip" 
+	    	android:foreground="@drawable/images_border_radius">
+			<ImageView 
+				android:id="@+id/user_avatar_ImageView" 
+				android:layout_width="fill_parent" 
+        		android:layout_height="fill_parent"
+        		android:background="@drawable/avatar_default"
+        		android:scaleType="centerCrop" />
+		</FrameLayout>	
+		<ImageView 
+			android:gravity="center"
+			android:id="@+id/logo_ImageView" 
+			android:paddingLeft="30dip"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent" 
+			android:src="@drawable/logo_top" />
+		<TextView
+			android:id="@+id/nickName_TextView"
+			android:textSize="30.0sp"
+			android:paddingTop="4dip"
+			android:textAppearance="@android:style/TextAppearance.Large" 
+			android:gravity="right"
+			android:layout_width="80dip"
+			android:layout_height="fill_parent" />
+	</LinearLayout>
+	<LinearLayout 
+		android:paddingTop="9dip"
+		android:orientation="vertical"
+		android:layout_gravity="center"
+		android:layout_width="240dip"
+		android:layout_height="wrap_content">
+		<TextView
+			android:text="@string/translate_info"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			style="@style/tel"/>
+	</LinearLayout>
+	<LinearLayout 
+		android:orientation="horizontal"
+		android:paddingTop="10dip"
+		android:layout_width="fill_parent"
+		android:layout_height="55dip">
+		<EditText 
+			android:gravity="left" 
+			android:id="@+id/word_edittext"
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent"
+			android:hint="@string/please_input_word" 
+			android:singleLine="true"
+			android:layout_weight="1.0"
+			android:inputType="textCapSentences|textAutoCorrect|textMultiLine" />
+	</LinearLayout>
+	<LinearLayout 
+    	android:orientation="vertical" 
+    	android:paddingTop="10.0dip" 
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content" 
+    	android:layout_weight="1.0"
+    	android:layout_marginLeft="2.0dip">
+		<TextView 
+           	android:layout_width="wrap_content" 
+           	android:layout_height="wrap_content" 
+           	android:text="@string/translate_result"
+           	style="@style/tel" />
+        <TextView 
+        	android:visibility="gone"
+        	android:paddingTop="5dip"
+			android:paddingLeft="10dip"
+			android:text="@string/no_translate_find"
+           	android:id="@+id/translate_no_result_textview" 
+           	android:layout_width="wrap_content" 
+           	android:layout_height="wrap_content" 
+           	style="@style/content" />
+        <LinearLayout 
+        	android:id="@+id/translate_result_linearlayout"
+        	android:orientation="horizontal"
+        	android:layout_width="fill_parent" 
+           	android:layout_height="wrap_content" >
+           	<TextView 
+	        	android:paddingTop="5dip"
+	           	android:id="@+id/word_textview" 
+	           	android:layout_width="wrap_content" 
+	           	android:layout_height="wrap_content" 
+	           	style="@style/content" />
+	        <LinearLayout 
+	        	android:id="@+id/translate_result_linearlayout"
+	        	android:orientation="vertical"
+	        	android:paddingLeft="10dip"
+	        	android:layout_width="fill_parent" 
+	           	android:layout_height="wrap_content" >
+	           	<TextView 
+		        	android:paddingTop="5dip"
+		           	android:id="@+id/symbol_textview" 
+		           	android:layout_width="wrap_content" 
+		           	android:layout_height="wrap_content" 
+		           	style="@style/content" />
+	           	<TextView 
+		        	android:paddingTop="5dip"
+		           	android:id="@+id/translate_result_textview" 
+		           	android:layout_width="wrap_content" 
+		           	android:layout_height="wrap_content" 
+		           	style="@style/content" />
+		    </LinearLayout> 
+        </LinearLayout>  
+        <LinearLayout 
+		  	android:orientation="horizontal"
+		  	android:layout_marginTop="5dip"
+		  	android:paddingTop="10dip"
+		  	android:paddingBottom="20dip"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content">
+			<Button 
+		        android:textAppearance="@android:style/TextAppearance.Large" 
+		        android:id="@+id/translate_Button" 
+		        android:background="@drawable/btn_translate" 
+		        android:layout_width="wrap_content" 
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="60dip"/>
+		    <Button 
+		        android:textAppearance="@android:style/TextAppearance.Large" 
+		        android:id="@+id/detail_Button" 
+		        android:background="@drawable/btn_detail" 
+		        android:layout_width="wrap_content" 
+		        android:layout_height="wrap_content"
+				android:layout_marginRight="50dip" 
+				android:layout_marginLeft="60dip"/>
+		</LinearLayout>
+    </LinearLayout>
+    <FrameLayout 
+		android:layout_marginBottom="20dip"
+		android:layout_gravity="center|bottom"
+    	android:layout_width="200dip"
+		android:layout_height="60dip">
+		<ImageView 
+			android:layout_width="fill_parent" 
+       		android:layout_height="fill_parent"
+       		android:background="@drawable/logo"
+       		android:scaleType="centerCrop" />
+	</FrameLayout>	
+</LinearLayout>

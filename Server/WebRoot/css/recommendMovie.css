@@ -1,0 +1,16 @@
+.rMoviesTable{
+	width: 620px;
+	font-family: "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
+	font-size: 14px;
+}
+
+.firstTd{
+	width: 100px;
+	vertical-align: top;
+}
+
+.firstTd img {
+	border-color: rgb(149, 195, 234);
+	border-style: solid;
+	border-width: thin;
+}

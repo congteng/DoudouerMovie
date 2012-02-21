@@ -1,0 +1,19 @@
+﻿
+
+
+								豆兜儿Movie 使用说明
+
+
+
+1.DoudouerMovie.apk 是安卓手机端安装文件
+
+2.DoudouerMovie.war需要放置到 web容器下，比如Tomcat/webapp下
+
+3.配置信息相关
+
+	a 导入ddmovie.sql文件
+	b 配置DoudouerMovie.war/WEB-INF/classes/jdbc.properties 中的数据库连接信息
+	
+4 推荐使用 FireFox Chrome Safari等非IE 浏览器
+
+												-- !Team

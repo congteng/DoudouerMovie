@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="net.doudouer.domain">
+	<class name="FreshNews" table="freshNews" lazy="true">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		
+		<property name="userID" column="userID" type="long" length="20"/>	
+		<property name="happenTo" column="happenTo" type="long" length="20"/>	
+		
+		
+		<property name="newsOfEntity" column="newsOfEntity" type="string" length="20"/>	
+		<property name="newsID" column="newsID" type="long" length="20"/>	
+		
+		<property name="newsType" column="newsType" type="string" length="20"/>	
+		<property name="timestamp" column="timestamp" type="long" length="20"/>	
+	</class>
+</hibernate-mapping>

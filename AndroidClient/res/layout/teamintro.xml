@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent" 
+	android:background="@drawable/intro_bg"
+	android:layout_height="fill_parent">
+	<FrameLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:paddingBottom="10dip">
+		<ImageView
+			android:id="@+id/intro_imageView"
+			android:src="@drawable/logo_iteam"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"/>
+	</FrameLayout>
+	<TextView
+		android:id="@+id/intro_textView"
+		android:text="@string/team_introduce"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		style="@style/introduce"/>
+</LinearLayout>

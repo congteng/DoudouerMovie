@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost 
+	android:id="@android:id/tabhost" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+  	xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout 
+    	android:orientation="vertical" 
+    	android:layout_width="fill_parent" 
+    	android:layout_height="fill_parent">
+        <FrameLayout 
+        	android:id="@android:id/tabcontent" 
+        	android:layout_width="fill_parent" 
+        	android:layout_height="fill_parent" 
+        	android:layout_weight="1.0" />
+        <TabWidget 
+        	android:id="@android:id/tabs" 
+        	android:visibility="gone" 
+        	android:layout_width="fill_parent" 
+        	android:layout_height="wrap_content" 
+        	android:layout_weight="0.0" />
+    </FrameLayout>
+    <RadioGroup 
+    	android:gravity="center_vertical"
+        android:layout_gravity="bottom" 
+		android:orientation="horizontal" 
+		android:id="@+id/main_radio"
+		android:background="@drawable/tab_bottom_bk"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<RadioButton
+			android:id="@+id/home"
+			android:background="@drawable/tab_home" 
+			android:checked="true"
+			style="@style/main_tab_bottom" />
+		<RadioButton 
+			android:id="@+id/publishfresh" 
+			android:background="@drawable/tab_publish"
+			style="@style/main_tab_bottom" />
+		<RadioButton 
+			android:id="@+id/lifehelper"
+			android:background="@drawable/tab_other" 
+			style="@style/main_tab_bottom" />
+	</RadioGroup>
+</TabHost>

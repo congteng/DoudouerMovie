@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	
+	<!-- 忽略url模式 -->
+	<constant name="struts.action.excludePattern" value="/webservice/DoudouerService"/>
+	
+    <!-- 设置开发模式,输出更多调试信息 -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 设置主题为简单模式  -->
+    <constant name="struts.ui.theme" value="simple" />
+
+    <!-- 允许静态方法调用 -->
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	
+	<package name="UserPkg" extends="struts-default">
+		<interceptors>
+			<interceptor name="LoginInterceptor" class="net.doudouer.struts.interceptor.LoginInterceptor"/>
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="LoginInterceptor"/>
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+	 	<!-- 定义默认的拦截器栈 -->
+        <default-interceptor-ref name="loginStack" />
+        
+	  	<!-- 配置全局结果 -->
+        <global-results>
+            <result name="login">/index.jsp</result>
+        </global-results>
+        
+        <!-- 注册 -->
+		<action name="RegAction_*" class="regAction" method="{1}">
+			<result>/hostpage.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		
+        <!-- 登陆 -->
+		<action name="LoginAction_*" class="loginAction" method="{1}">
+			<result>/hostpage.jsp</result>
+			<result name="toReg">/index.jsp</result>
+		</action>
+		
+        <!-- 用户Action -->
+		<action name="UserAction_*" class="userAction" method="{1}">
+			<!-- 评价电影 -->
+			<result name="evaluateMoviePage">/evaluateMoviePage.jsp</result>
+			<result name="showMovies">/movieDatas.jsp</result>
+			<!-- 新鲜事 -->
+			<result name="freshNewsListPage">/freshNewsListPage.jsp</result>
+			<result name="showFreshNews">/freshNewsData.jsp</result>
+			<!-- 推荐电影 -->
+			<result name="recommendMoviePage">/recommendMoviePage.jsp</result>
+			<!-- 推荐用户 -->
+			<result name="recommendUserPage">/recommendUserPage.jsp</result>
+			
+			<result name="friendsInfo">/friendsInfo.jsp</result>
+			<result name="collectionInfo">/collectionInfo.jsp</result>
+			<result name="userInfo">/userInfo.jsp</result>
+			<!-- 出错页面 -->
+			<result name="input">/error.jsp</result>
+		</action>
+		
+		<action name="MovieAction_*" class="movieAction" method="{1}">
+			<!-- 添加电影页面 -->
+			<result name="addMoviePage">/addMoviePage.jsp</result>
+			<result name="input">/error.jsp</result>
+			<result>/success.jsp</result>
+		</action>
+	</package>    
+</struts>

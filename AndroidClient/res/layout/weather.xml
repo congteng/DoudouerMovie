@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_gravity="center_vertical"
+	android:layout_width="fill_parent"  
+    android:layout_height="fill_parent" 
+    android:background="@color/dd_background"
+    android:scrollbars="vertical">
+	<LinearLayout 
+		android:orientation="vertical"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent"
+		xmlns:android="http://schemas.android.com/apk/res/android">
+	    <LinearLayout 
+			android:orientation="horizontal"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content">
+			<FrameLayout 
+		    	android:layout_width="50dip"
+				android:layout_height="50dip" 
+		    	android:foreground="@drawable/images_border_radius">
+				<ImageView 
+					android:id="@+id/user_avatar_ImageView" 
+					android:layout_width="fill_parent" 
+	        		android:layout_height="fill_parent"
+	        		android:background="@drawable/avatar_default"
+	        		android:scaleType="centerCrop" />
+			</FrameLayout>	
+			<ImageView 
+				android:gravity="center"
+				android:id="@+id/logo_ImageView" 
+				android:paddingLeft="30dip"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent" 
+				android:src="@drawable/logo_top" />
+			<TextView
+				android:id="@+id/nickName_TextView"
+				android:textSize="30.0sp"
+				android:paddingTop="4dip"
+				android:textAppearance="@android:style/TextAppearance.Large" 
+				android:gravity="right"
+				android:layout_width="80dip"
+				android:layout_height="fill_parent" />
+		</LinearLayout>
+		<LinearLayout 
+			android:orientation="vertical"
+			android:layout_gravity="center"
+			android:layout_width="220dip"
+			android:layout_height="wrap_content">
+			<TextView
+				android:text="@string/weather_info"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				style="@style/tel"/>
+		</LinearLayout>
+		<LinearLayout 
+			android:orientation="horizontal"
+			android:paddingTop="10dip"
+			android:layout_width="fill_parent"
+			android:layout_height="55dip">
+			<EditText 
+				android:gravity="left" 
+				android:id="@+id/city_name_edittext"
+				android:layout_width="200dip" 
+				android:layout_height="fill_parent"
+				android:hint="@string/please_input_city_name" 
+				android:singleLine="true"
+				android:layout_weight="1.0"
+				android:inputType="textCapSentences|textAutoCorrect|textMultiLine" />
+			<FrameLayout 
+				android:paddingRight="5dip"
+				android:layout_gravity="right"
+				android:paddingLeft="5dip"
+		    	android:layout_width="90dip"
+				android:layout_height="40dip">
+				<Button 
+					android:id="@+id/search_tel_button"
+					android:layout_width="fill_parent" 
+		       		android:layout_height="fill_parent"
+		       		android:background="@drawable/btn_search"/>
+			</FrameLayout>
+		</LinearLayout>
+		<LinearLayout 
+	    	android:orientation="vertical" 
+	    	android:paddingTop="11.0dip" 
+	    	android:layout_width="fill_parent" 
+	    	android:layout_height="wrap_content" 
+	    	android:layout_marginLeft="2.0dip">
+			<TextView 
+				android:text="@string/result"
+	           	android:layout_width="wrap_content" 
+	           	android:layout_height="wrap_content" 
+	           	style="@style/tel" />
+	        <TextView 
+	        	android:visibility="gone"
+	        	android:paddingTop="5dip"
+	        	android:text="@string/search_result_null"
+				android:paddingLeft="10dip"
+	           	android:id="@+id/weather_no_result_textview" 
+	           	android:layout_width="wrap_content" 
+	           	android:layout_height="wrap_content" 
+	           	style="@style/content" />
+	        <LinearLayout 
+	        	android:id="@+id/weather_detail_linearlayout"
+	        	android:orientation="vertical"
+	        	android:visibility="visible"
+	        	android:layout_width="fill_parent" 
+	           	android:layout_height="wrap_content" >
+		        <TextView 
+		        	android:paddingTop="5dip"
+		           	android:id="@+id/weather_cityname_textview" 
+		           	android:layout_width="wrap_content" 
+		           	android:layout_height="wrap_content" 
+		           	style="@style/content" />
+		        <TextView 
+		        	android:paddingTop="5dip"
+		           	android:id="@+id/weather_today_textview" 
+		           	android:layout_width="wrap_content" 
+		           	android:layout_height="wrap_content" 
+		           	style="@style/content" />
+		        <TextView 
+		        	android:paddingTop="5dip"
+		           	android:id="@+id/weather_air_textview" 
+		           	android:layout_width="wrap_content" 
+		           	android:layout_height="wrap_content" 
+		           	style="@style/content" />
+		        <TextView 
+		        	android:paddingTop="5dip"
+		           	android:id="@+id/weather_direct_textview" 
+		           	android:layout_width="wrap_content" 
+		           	android:layout_height="wrap_content" 
+		           	style="@style/content" />
+		        <LinearLayout 
+		        	android:id="@+id/weather_tomorrow_detail_linearlayout"
+		        	android:orientation="vertical"
+		        	android:layout_width="fill_parent" 
+		           	android:layout_height="wrap_content" >
+		           	<TextView 
+			        	android:paddingTop="5dip"
+			           	android:id="@+id/weather_tomorrow_textview" 
+			           	android:layout_width="wrap_content" 
+			           	android:layout_height="wrap_content" 
+			           	style="@style/content" />
+		           	<TextView 
+			        	android:paddingTop="5dip"
+			           	android:id="@+id/weather_tomorrow_temp_textview" 
+			           	android:layout_width="wrap_content" 
+			           	android:layout_height="wrap_content" 
+			           	style="@style/content" />
+		           	<TextView 
+			        	android:paddingTop="5dip"
+			           	android:id="@+id/weather_tomorrow_wind_textview" 
+			           	android:layout_width="wrap_content" 
+			           	android:layout_height="wrap_content" 
+			           	style="@style/content" />
+	           	</LinearLayout>  
+	           	<LinearLayout 
+		        	android:id="@+id/weather_after_tomorrow_detail_linearlayout"
+		        	android:orientation="vertical"
+		        	android:layout_width="fill_parent" 
+		           	android:layout_height="wrap_content" >
+		           	<TextView 
+			        	android:paddingTop="5dip"
+			           	android:id="@+id/weather_after_tomorrow_textview" 
+			           	android:layout_width="wrap_content" 
+			           	android:layout_height="wrap_content" 
+			           	style="@style/content" />
+		           	<TextView 
+			        	android:paddingTop="5dip"
+			           	android:id="@+id/weather_after_tomorrow_temp_textview" 
+			           	android:layout_width="wrap_content" 
+			           	android:layout_height="wrap_content" 
+			           	style="@style/content" />
+		           	<TextView 
+			        	android:paddingTop="5dip"
+			           	android:id="@+id/weather_after_tomorrow_wind_textview" 
+			           	android:layout_width="wrap_content" 
+			           	android:layout_height="wrap_content" 
+			           	style="@style/content" />
+	           	</LinearLayout> 
+	        </LinearLayout>   	
+	    </LinearLayout>
+	</LinearLayout>
+</ScrollView>

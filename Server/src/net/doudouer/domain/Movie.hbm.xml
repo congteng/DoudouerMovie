@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="net.doudouer.domain">
+	<class name="Movie" table="movies" lazy="true" batch-size="5">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		
+		<property name="movieName" column="movieName" type="string" length="20"/>
+		<property name="type" column="type" type="string" length="30"/>		
+		<property name="director" column="director" type="string" length="20"/>	
+		<property name="actor" column="actor" type="string" length="200"/>	
+		<property name="description" column="description" type="string" length="500"/>
+		<property name="country" column="country" type="string" length="30"/>
+		<property name="language" column="language" type="string" length="15"/>
+		<property name="releaseYear" column="releaseYear" type="string" length="50"/>
+		<property name="avatarLink" column="avatarLink" type="string" length="50"/>
+
+		<set name="whoCollect" table="collection" lazy="false" batch-size="5">
+			<key column="movieCollection"></key>
+			<many-to-many class="User" column="whoCollect"></many-to-many>
+		</set>
+			
+	</class>
+</hibernate-mapping>

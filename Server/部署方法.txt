@@ -1,0 +1,29 @@
+
+豆兜儿Movie 使用说明
+
+1,数据库方面：
+	在jdbc.properties配置相关数据库信息
+2,数据导入方面还没有做脚本，所以暂不考虑
+3,将项目放在tomcat/webapp下就可以运行
+4,修改项目要在该项目备份上修改。该项目要保存版本
+
+
+关于URL：
+
+进入该网站 
+localhost:8080/DoudouerMovie
+
+index.jsp <-->  登录页面 login.jsp
+
+reg.jsp <--> 注册页面
+
+
+添加电影的url：
+localhost:8080/DoudouerMovie/MovieAction_toAddMovie.action
+
+
+ 
+
+
+1,根据电影id 得到电影详细信息
+2,根据用户id 得到用户头像地址 

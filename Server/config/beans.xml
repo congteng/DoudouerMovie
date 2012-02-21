@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+    xmlns:jaxws="http://cxf.apache.org/jaxws"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+                        http://www.springframework.org/schema/context 
+                        http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+                        http://www.springframework.org/schema/tx 
+                        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+                        http://www.springframework.org/schema/aop 
+                        http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+                        http://www.directwebremoting.org/schema/spring-dwr
+       					http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd
+       					http://cxf.apache.org/jaxws 
+						http://cxf.apache.org/schemas/jaxws.xsd">
+       					
+    <!-- 导入daoCache.xml   
+    <import resource="classpath:daoCache.xml"/>
+ -->
+    
+    <!-- 导入webService -->
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	<import resource="classpath:services.xml" />
+	
+    <!-- 分散配置,指定属性文件 -->
+    <context:property-placeholder location="classpath:jdbc.properties" />
+    <!-- 扫描包,不能换行 -->
+    <context:component-scan base-package="net.doudouer.dao,net.doudouer.service,net.doudouer.struts.action,net.doudouer.movie.recommender" />
+    <context:annotation-config/>
+    
+    <!-- c3p0数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driverclass}" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="user" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        
+        <property name="maxPoolSize" value="${c3p0.max.size}" />
+        <property name="minPoolSize" value="${c3p0.min.size}" />
+        <property name="initialPoolSize" value="${c3p0.ini.size}" />
+        <property name="acquireIncrement" value="${c3p0.increment.size}" />
+    </bean>
+    <!-- 本地会话工厂bean(spring整合hibernate资源的核心入口) -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <!-- hibernate自身的属性 -->
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=${hibernate.dialect}
+                hibernate.hbm2ddl.auto=${hibernate.hbm2ddl.auto}
+                hibernate.show_sql=${hibernate.show_sql}
+            </value>
+        </property>
+        <!-- 映射目录位置集 -->
+        <property name="mappingDirectoryLocations">
+            <value>classpath:net/doudouer/domain</value>
+        </property>
+    </bean>
+    <!-- Hibernate事务管理器,在service层面上实现事务管理的核心类 -->
+    <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+    <!-- 事务通知,依赖于事务管理器,默认值是transactionManager -->
+    <tx:advice id="txAdvice" transaction-manager="hibernateTransactionManager">
+        <tx:attributes>
+            <!-- 写操作,要求事务 -->
+            <tx:method name="save*" propagation="REQUIRED" isolation="DEFAULT"/>
+            <tx:method name="update*" propagation="REQUIRED" isolation="DEFAULT"/>
+            <tx:method name="delete*" propagation="REQUIRED" isolation="DEFAULT"/>
+            <tx:method name="batch*" propagation="REQUIRED" isolation="DEFAULT"/>
+            <tx:method name="add*" propagation="REQUIRED" isolation="DEFAULT"/>
+            <!-- 读操作 -->
+            <tx:method name="load*" propagation="REQUIRED" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="get*" propagation="REQUIRED" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="find*" propagation="REQUIRED" isolation="DEFAULT" read-only="true"/>
+            <!-- 其它情况 -->
+            <tx:method name="*" propagation="REQUIRED" isolation="DEFAULT"/>
+        </tx:attributes>
+    </tx:advice> 
+    <!-- aop配置,声明式事务配置 -->
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="txPointcut" expression="execution(* *..*Service.*(..))"/>
+        <!-- advisor组合体,既包含通知,又包含切入点 -->
+        <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
+    </aop:config>
+    
+    <!-- Recommender使用数据源 -->
+    <bean id="movieDataModel" class="net.doudouer.movie.datamodel.MovieDataModel">
+    	<constructor-arg>
+    		<ref bean="dataSource"/>
+    	</constructor-arg>
+    </bean>
+    
+    <!-- FreshNews生成器 -->
+    <bean id="freshNewsAchiever" class="net.doudouer.service.recall.WebFreshNewsAchiever">
+    </bean>
+    
+</beans>

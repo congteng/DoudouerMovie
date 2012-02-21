@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="net.doudouer.domain">
+	<class name="FriendRelationship" table="friendRelationship" lazy="true">
+	<composite-id>
+		<key-property name="userID" column="userID" length="20" type="long"></key-property>
+		<key-property name="friendID" column="friendID" length="20" type="long"></key-property>
+	</composite-id>
+	</class>
+</hibernate-mapping>

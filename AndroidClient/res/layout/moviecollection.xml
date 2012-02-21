@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:background="@color/list_background_color" 
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  <include android:id="@+id/progress" layout="@layout/progress"/> 
+	<ListView 
+		android:id="@+id/moviecollection_listview"
+		android:background="@color/list_background_color" 
+		android:fadingEdge="none"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent"
+		android:divider="#ffe6e6e6"
+		android:dividerHeight="0.0dip" 
+		android:layout_weight="1.0"
+		android:fastScrollEnabled="true" 
+		android:fadeScrollbars="true" />
+</LinearLayout>

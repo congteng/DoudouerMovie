@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<color name="helper_background_color">#ffefebe7</color>
+    <color name="dd_background">#ffefebe7</color>
+    <color name="black">#ff000000</color>
+    <color name="home_background_color">#ffefebe7</color>
+    <color name="white">#ffffffff</color>
+    <color name="tab_top_text_default_color">#ff666666</color>
+    <color name="list_background_color">#ffefebe7</color>
+    <color name="transparent">#00000000</color>
+    <color name="discuss_head_text_color">#ff333333</color>
+</resources>

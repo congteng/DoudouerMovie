@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="net.doudouer.domain">
+	<class name="User" table="users" lazy="true">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		
+		<property name="email" column="email" type="string" length="50"/>
+		<property name="nickName" column="nickName" type="string" length="20"/>		
+		<property name="password" column="password" type="string" length="30"/>	
+		<property name="timestamp" column="timstamp" type="long" length="15"/>
+		<property name="newsTypes" column="newsTypes" type="string" length="300"/>
+		<property name="avatarLink" column="avatarLink" type="string" length="50"/>
+			
+		<set name="movieCollection" table="collection" inverse="true" lazy="false">
+			<key column="whoCollect"></key>
+			<many-to-many class="Movie" column="movieCollection"></many-to-many>
+		</set>	
+			
+	</class>
+</hibernate-mapping>
