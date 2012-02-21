@@ -4,10 +4,8 @@
 								豆兜儿Movie 使用说明
 
 
+不包含生成文件。都是源代码。
 
-1.DoudouerMovie.apk 是安卓手机端安装文件
-
-2.DoudouerMovie.war需要放置到 web容器下，比如Tomcat/webapp下
 
 3.配置信息相关
 
